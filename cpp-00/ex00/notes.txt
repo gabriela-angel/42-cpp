@@ -13,3 +13,4 @@ TO SEARCH:
  - include guards
 
  https://developers.google.com/style/code-samples
+ https://pt.stackoverflow.com/questions/151604/diferen%C3%A7a-entre-stdcout-e-cout
