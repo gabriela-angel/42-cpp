@@ -1,0 +1,177 @@
+## TO SEARCH:
+ - file types in cpp (.tpp, .hpp/.h, .cpp)
+ - the standard library
+ - NOT USE (but search): Boost libraries, *printf(), *alloc() and free()
+ - NOT USE (but search): using namespace <ns_name> and friend keywords
+ - STL (?)
+	(?) You are allowed to use the STL only in Modules 08 and 09. That means:
+		no Containers (vector/list/map, and so forth) and no Algorithms (anything that
+		requires including the <algorithm> header) until then.
+ - Allocating memory
+ - Orthodox Canonical Form
+ - function templates (?) -> same as func prototypes ?
+ - include guards
+
+## NAMESPACES
+:: operator - scope resolution operator access namespaces
+for global variables we use that operator too for better legibility
+
+int	age;
+
+namespace Bar{
+	int	age = 7;
+}
+
+namespace Muf = Bar;
+
+Bar::age
+::age
+
+## COUT CIN
+std::cout << "Hello world!" << std::endl;
+std::cout << "Input a word: ";
+std:cin >> buff;
+std::cout << "You entered: [" << buff << "]" << std:endl;
+
+## CLASS AND INSTANCES
+class Sample {
+public:
+	int number;
+
+	Sample(void); # constructor, needs to be the name of the class
+	~Sample(void); # destructor
+
+	int randomFunction(void);
+};
+
+Constructors and destructors don't have a return type.
+
+Sample::Sample(void) {
+	std::cout << "Constructor called" << std::endl;
+
+	this->number = 42; # "this" is a pointr to self
+
+	this->randomFunction();
+
+	return;
+}
+
+Sample::~Sample(void) {
+	std::cout << "Destructor called" << std::endl;
+	return;
+}
+
+Methods dont
+int Sample::randomFunction(void) {
+	std::cout << "Hello from method" << std::endl;
+	return (42);
+}
+
+int main(){
+	Sample instance;
+
+	return (0);
+}
+
+## INITIALIZATION LIST
+class Sample {
+public:
+	int		number;
+	char	letter;
+
+	Sample(int a1, char c2);
+	~Sample(void);
+
+	int randomFunction(void);
+};
+
+Sample::Sample(int a1, char c2) : number(a1), letter(c2) {
+	std::cout << "Constructor called" << std::endl;
+	std::cout << "this->number: " << this->number << std::endl;
+	std::cout << "this->letter: " << this->letter << std::endl;
+
+	this->randomFunction();
+
+	return;
+}
+
+int main(){
+	Sample instance(42, 'a');
+
+	return (0);
+}
+
+# CONST
+class Sample {
+public:
+	float const	pi;
+	int			number;
+
+	Sample(float const f);
+	~Sample(void);
+
+	int	randomFunction(void) const; ## it tells that the method own't alter the current instance
+};
+
+Sample::Sample(float const f) : pi(f), number(42) {
+	std::cout << "Constructor called" << std::endl;
+	std::cout << "this->number: " << this->number << std::endl;
+	std::cout << "this->letter: " << this->letter << std::endl;
+
+	return;
+}
+
+int Sample::randomFunction(void) const {
+	std::cout << "Hello from method" << std::endl;
+	return (42);
+}
+
+## PUBLIC VS. PRIVATE
+If not defined it is private
+
+class Sample {
+public:
+	int		publicFoo;
+
+	Sample(void);
+	~Sample(void);
+
+	void	publicBar(void) const;
+
+private: #user can't access; all the details that will allow your class to work but don't belong to the user
+	int		_privateFoo; # use '_' prefix for all private for convention
+
+	void	_privateBar(void) const;
+
+};
+
+Sample::Sample(void) {
+	std::cout << "Constructor called" << std::endl;
+
+	this->publicFoo = 0;
+	this->_privateFoo = 0;
+	std::cout << "this->publicFoo: " << this->publicFoo << std::endl;
+	std::cout << "this->_privateFoo: " << this->_privateFoo << std::endl;
+
+	this->publicBar();
+	this->_privateBar();
+
+	return;
+}
+
+## STRUCTS
+struct	Sample {
+	int	foo;
+
+	Sample(void); # constructor
+	~Sample(void); # destructor
+
+	void	bar(void) const;
+}
+
+Difference between class and struct: struct publi by default,
+
+
+## HELPFUL LINKS
+ https://developers.google.com/style/code-samples
+ https://pt.stackoverflow.com/questions/151604/diferen%C3%A7a-entre-stdcout-e-cout
