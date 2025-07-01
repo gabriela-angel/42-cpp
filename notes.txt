@@ -169,7 +169,7 @@ struct	Sample {
 	void	bar(void) const;
 }
 
-Difference between class and struct: struct publi by default,
+Difference between class and struct: struct publi by default.
 
 
 ## HELPFUL LINKS

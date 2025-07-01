@@ -6,7 +6,7 @@
 #    By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 15:35:03 by gangel-a          #+#    #+#              #
-#    Updated: 2025/06/27 14:11:57 by gangel-a         ###   ########.fr        #
+#    Updated: 2025/07/01 15:04:26 by gangel-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 INCLUDES = -Iinclude
 
 # SOURCE
-SRC = main.cpp phonebook.cpp
+SRC := main.cpp phonebook.cpp
+OBJ := $(SRC:%.c=%.o)
 
 # RULES
 all: $(NAME)
