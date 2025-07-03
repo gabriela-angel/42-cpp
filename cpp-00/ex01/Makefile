@@ -6,7 +6,7 @@
 #    By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 15:35:03 by gangel-a          #+#    #+#              #
-#    Updated: 2025/07/01 15:04:26 by gangel-a         ###   ########.fr        #
+#    Updated: 2025/07/03 12:44:12 by gangel-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,26 +16,48 @@ NAME = phonebook
 # COMPILER
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-INCLUDES = -Iinclude
+
+# DIRECTORIES
+OBJ_DIR = bin/
 
 # SOURCE
-SRC := main.cpp phonebook.cpp
-OBJ := $(SRC:%.c=%.o)
+SRC := main.cpp Phonebook.class.cpp
+OBJ := $(SRC:%.cpp=$(OBJ_DIR)%.o)
 
-# RULES
+# ------------------------------ Colors ------------------------------
+
+BLUE		=	\033[0;34m
+BLUE_BOLD	=	\033[1;34m
+GREEN_BOLD	=	\033[1;92m
+YELLOW_BOLD	=	\033[1;93m
+YELLOW		=	\033[0;33m
+RED			=	\033[0;91m
+MAGENTA 	=	\033[1;35m
+MAGENTA_BOLD = \033[1;35m
+CYAN		=	\033[0;96m
+CYAN_BOLD	=	\033[1;36m
+RESET		=	\033[0m
+
+# ------------------------------ Rules ------------------------------
+
 all: $(NAME)
 
-$(NAME): $(SRC)
-	@$(CC) $(FLAGS) $(INCLUDES) $(SRC) -o $@
-	@printf "\033[32m%s\033[0m\n" "Compilation successful: $(NAME)"
+$(NAME): $(OBJ)
+	@$(CC) $(FLAGS) $(OBJ) -o $@
+	@printf "$(GREEN_BOLD)Compilation successful: $(NAME) $(RESET)\n"
+
+$(OBJ_DIR):
+	@mkdir -p $@
+
+$(OBJ_DIR)%.o: %.cpp | $(OBJ_DIR)
+	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(NAME)
-	@printf "\033[33m%s\033[0m\n" "Cleaned up: $(NAME)"
-
+	@rm -rf $(OBJ_DIR)
+	@printf "$(MAGENTA_BOLD)[$(NAME)]:\tobject files$(RESET)$(GREEN_BOLD)  => Cleaned!$(RESET)\n"
 fclean: clean
 	@rm -f $(NAME)
-	@printf "\033[31m%s\033[0m\n" "Fully cleaned: $(NAME)"
+	@printf "$(MAGENTA_BOLD)[$(NAME)]:\texec. files$(RESET)$(GREEN_BOLD)  => Cleaned!$(RESET)\n"
 
 re: fclean all
 
