@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:13:45 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/07/03 15:00:20 by gangel-a         ###   ########.fr       */
+/*   Updated: 2025/07/08 12:20:30 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,24 @@ std::string Contact::getDarkestSecret(void) const {
 	return this->_darkestSecret;
 }
 
+bool Contact::_checkPhoneNumber(std::string phoneNumber) {
+	if (!std::isdigit(phoneNumber[0]) && phoneNumber[0] != '+') {
+		std::cout << "Invalid phone number: phone number must start with a number or '+'.\n";
+		return (false);
+	}
+	if (phoneNumber.length() > 15) {
+		std::cout << "Invalid phone number: phone number is too long.\n";
+		return (false);
+	}
+	for (int i = 1; phoneNumber[i]; i++) {
+		if (!std::isdigit(phoneNumber[i])) {
+			std::cout << "Invalid phone number: phone number must contain only digits.\n";
+			return (false);
+		}
+	}
+	return (true);
+}
+
 int Contact::modifyContact(std::string firstName,
 	std::string lastName, std::string nickname,
 	std::string phoneNumber, std::string darkestSecret){
@@ -42,10 +60,8 @@ int Contact::modifyContact(std::string firstName,
 		std::cout << "All fields must be filled.\n";
 		return (1);
 	}
-	if (_checkPhoneNumber(phoneNumber) == false) {
-		std::cout << "Invalid phone number.\n";
+	if (_checkPhoneNumber(phoneNumber) == false)
 		return (1);
-	}
 	this->_firstName = firstName;
 	this->_lastName = lastName;
 	this->_nickname = nickname;
@@ -79,21 +95,24 @@ void PhoneBook::addContact(std::string firstName,
 
 std::string PhoneBook::_truncate(std::string str) const {
 	if (str.length() > 10)
-		return str.substr(0,8) + ".";
+		return str.substr(0,9) + ".";
 	return str;
 }
 
 void PhoneBook::displayContacts(void) const {
-	if (this->_index - 1 < 0)
+	if (this->_totalContacts == 0)
 		std::cout << "No contacts were added to the list." << std::endl;
 	else {
-		std::cout << "     Index|First name| Last name|  Nickname" << std::endl;
+		std::cout << std::setw(10) << "Index" << "|";
+		std::cout << std::setw(10) << "First name" << "|";
+		std::cout << std::setw(10) << "Last name" << "|";
+		std::cout << std::setw(10) << "Nickname" << std::endl;
 		for (int i = 0; i < this->_totalContacts; i++)
 		{
-			std::cout << i << "|"; // REMEMBER TO RIGHT-ALIGN E FILE 10 SPACES
-			std::cout << _truncate(_contacts[i].getFirstName()) << "|";
-			std::cout << _truncate(_contacts[i].getLastName()) << "|";
-			std::cout << _truncate(_contacts[i].getNickname()) << std::endl;
+			std::cout << std::setw(10) << i << "|"; // REMEMBER TO RIGHT-ALIGN E FILE 10 SPACES
+			std::cout << std::setw(10) << _truncate(_contacts[i].getFirstName()) << "|";
+			std::cout << std::setw(10) << _truncate(_contacts[i].getLastName()) << "|";
+			std::cout << std::setw(10) << _truncate(_contacts[i].getNickname()) << std::endl;
 		}
 	}
 }
@@ -101,15 +120,15 @@ void PhoneBook::displayContacts(void) const {
 void PhoneBook::requestIndex(void) const {
 	std::string	input;
 	int			index;
-	if (this->_index - 1 < 0)
+
+	if (this->_totalContacts == 0)
 		return ;
 	std::cout << "Select an index: ";
 	std::cin >> input;
 	std::stringstream ss(input);
 	ss >> index;
-
 	if (ss.fail() || index > this->_totalContacts || index < 0)
-		std::cout << "Invalid input!" << std::endl;
+		std::cout << "Invalid input." << std::endl;
 	else
 		_getContactInfo(index);
 }

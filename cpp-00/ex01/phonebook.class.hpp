@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:03:33 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/07/03 14:57:44 by gangel-a         ###   ########.fr       */
+/*   Updated: 2025/07/08 12:12:59 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define PHONEBOOK_CLASS_H
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 # include <sstream>
-# include <cctype>
 
 class	Contact {
 private:
@@ -26,6 +26,7 @@ private:
 	std::string	_phoneNumber;
 	std::string	_darkestSecret;
 
+	bool _checkPhoneNumber(std::string phoneNumber);
 public:
 	Contact(void);
 	~Contact(void);
