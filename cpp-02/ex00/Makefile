@@ -6,7 +6,7 @@
 #    By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/08 12:25:45 by gangel-a          #+#    #+#              #
-#    Updated: 2025/12/09 19:13:36 by gangel-a         ###   ########.fr        #
+#    Updated: 2025/12/09 19:14:23 by gangel-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ_DIR = bin/
 
 # SOURCE
-SRC := Account.cpp tests.cpp
+SRC := main.cpp \
+	Fixed.cpp
 OBJ := $(SRC:%.cpp=$(OBJ_DIR)%.o)
 
 # ------------------------------ Colors ------------------------------
