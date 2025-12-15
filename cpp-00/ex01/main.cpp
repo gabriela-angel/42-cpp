@@ -6,11 +6,11 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:07:03 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/07/03 13:57:13 by gangel-a         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:50:59 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.class.hpp"
+#include "PhoneBook.hpp"
 
 int	main(void)
 {

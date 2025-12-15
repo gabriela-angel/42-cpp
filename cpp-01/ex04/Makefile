@@ -6,12 +6,12 @@
 #    By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 15:35:03 by gangel-a          #+#    #+#              #
-#    Updated: 2025/12/04 17:57:45 by gangel-a         ###   ########.fr        #
+#    Updated: 2025/12/04 17:57:34 by gangel-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # NAME
-NAME = harlFilter
+NAME = replace
 
 # COMPILER
 CC = c++
@@ -22,7 +22,7 @@ OBJ_DIR = bin/
 
 # SOURCE
 SRC := main.cpp \
-	Harl.cpp
+	ftReplace.cpp
 OBJ := $(patsubst %.cpp, $(OBJ_DIR)%.o, $(SRC))
 
 # ------------------------------ Colors ------------------------------

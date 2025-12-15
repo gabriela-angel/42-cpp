@@ -1,0 +1,21 @@
+STACK VS HEAP
+DETERMINAR EM QUAL CASO E MELHOR ALOCAR SUMBIS NA STACK OU NO HEAP
+
+'new' KEYWORD IS AN operator that:
+
+✅ 1. Allocates memory on the heap
+✅ 2. Calls the constructor of the object
+✅ 3. Returns a pointer to the newly created object
+
+EVERY NEW MUST HAVE A CORRESPONDING 'delete;
+
+Heap (new)
+- Lives until you delete it
+- You get a pointer
+- Manual memory management
+
+Stack
+`` Zombie z("Bob"); ```
+- Automatically freed when it goes out of scope
+- No delete needed
+- No pointer unless you take its address

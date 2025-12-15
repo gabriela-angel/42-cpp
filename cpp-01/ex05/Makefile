@@ -6,7 +6,7 @@
 #    By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 15:35:03 by gangel-a          #+#    #+#              #
-#    Updated: 2025/12/04 17:11:52 by gangel-a         ###   ########.fr        #
+#    Updated: 2025/12/04 17:57:39 by gangel-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ_DIR = bin/
 
 # SOURCE
 SRC := main.cpp \
-		Harl.cpp
+	Harl.cpp
 OBJ := $(patsubst %.cpp, $(OBJ_DIR)%.o, $(SRC))
 
 # ------------------------------ Colors ------------------------------

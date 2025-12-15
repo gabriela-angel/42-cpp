@@ -1,1 +1,10 @@
 HOW DO I CHECK FOR MEMORY LEAKS IN CPP?
+
+Em qual caso você acha que seria melhor usar um ponteiro para Weapon?
+E uma referência para Weapon? Por quê? Pense sobre isso antes de
+começar este exercício.
+
+" Você deve ser capaz de usar cada um de seus cabeçalhos independentemente de
+outros. Portanto, eles devem incluir todas as dependências de que precisam. No
+entanto, você deve evitar o problema de inclusão dupla adicionando proteções de
+inclusão. Caso contrário, sua nota será 0." --------- CHECK ALL EXCS BEFORE THIS ONE TO MAKE SURE WE DON'T DO THIS

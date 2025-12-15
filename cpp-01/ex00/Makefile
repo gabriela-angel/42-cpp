@@ -6,12 +6,12 @@
 #    By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 15:35:03 by gangel-a          #+#    #+#              #
-#    Updated: 2025/12/04 17:57:45 by gangel-a         ###   ########.fr        #
+#    Updated: 2025/11/25 18:35:05 by gangel-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # NAME
-NAME = harlFilter
+NAME = zombie
 
 # COMPILER
 CC = c++
@@ -22,8 +22,10 @@ OBJ_DIR = bin/
 
 # SOURCE
 SRC := main.cpp \
-	Harl.cpp
-OBJ := $(patsubst %.cpp, $(OBJ_DIR)%.o, $(SRC))
+	   Zombie.cpp \
+	   newZombie.cpp \
+	   randomChump.cpp
+OBJ := $(SRC:%.cpp=$(OBJ_DIR)%.o)
 
 # ------------------------------ Colors ------------------------------
 
