@@ -6,7 +6,7 @@
 #    By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 15:35:03 by gangel-a          #+#    #+#              #
-#    Updated: 2025/07/03 12:44:12 by gangel-a         ###   ########.fr        #
+#    Updated: 2025/09/06 20:52:01 by gangel-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ_DIR = bin/
 
 # SOURCE
-SRC := main.cpp Phonebook.class.cpp
+SRC := main.cpp PhoneBook.cpp Contact.cpp
 OBJ := $(SRC:%.cpp=$(OBJ_DIR)%.o)
 
 # ------------------------------ Colors ------------------------------
