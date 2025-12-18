@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 20:03:17 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/12/17 21:08:45 by gangel-a         ###   ########.fr       */
+/*   Created: 2025/12/17 21:05:53 by gangel-a          #+#    #+#             */
+/*   Updated: 2025/12/17 21:18:18 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
-# include "Weapon.hpp"
 
-class HumanA {
+class ClapTrap {
 private:
 	std::string _name;
-	Weapon& _weapon;
+	int		_hitPoints;
+	int		_energyPoints;
+	int		_atkDmg;
 
 public:
-	HumanA(std::string name, Weapon& weapon);
-	~HumanA(void);
+	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap& copy);
+	ClapTrap& operator=(const ClapTrap& other);
+	~ClapTrap(void);
 
-	void attack(void) const;
+	void attack(const std::string& target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
 };
 
 #endif

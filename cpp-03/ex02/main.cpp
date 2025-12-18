@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 20:03:17 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/12/17 21:08:45 by gangel-a         ###   ########.fr       */
+/*   Created: 2025/12/17 21:33:36 by gangel-a          #+#    #+#             */
+/*   Updated: 2025/12/18 15:26:36 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-# include <iostream>
-# include "Weapon.hpp"
+int main (void) {
+	ScavTrap trap("Lennard");
 
-class HumanA {
-private:
-	std::string _name;
-	Weapon& _weapon;
+	trap.attack("enemy");
+	trap.guardGate();
+	
+	FragTrap trapTwo("Bonnie");
 
-public:
-	HumanA(std::string name, Weapon& weapon);
-	~HumanA(void);
+	trapTwo.attack("enemy");
+	trapTwo.highFivesGuys();
 
-	void attack(void) const;
-};
-
-#endif
+	return 0;
+}

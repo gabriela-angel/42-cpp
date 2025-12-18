@@ -41,9 +41,9 @@ public:
 	Fixed operator*(const Fixed& other) const;
 	Fixed operator/(const Fixed& other) const;
 
-	Fixed& operator++();
+	Fixed& operator++(void);
 	Fixed operator++(int);
-	Fixed& operator--();
+	Fixed& operator--(void);
 	Fixed operator--(int);
 
 	int getFractBits(void) const;

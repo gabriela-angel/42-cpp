@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 19:19:30 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/12/17 21:00:09 by gangel-a         ###   ########.fr       */
+/*   Updated: 2025/12/17 21:10:21 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ Fixed Fixed::operator/(const Fixed& other) const {
 	return n;
 }
 
-Fixed& Fixed::operator++() {
+Fixed& Fixed::operator++(void) {
 	int newValue = this->getRawBits() + 1;
 	this->setRawBits(newValue);
 	
@@ -105,7 +105,7 @@ Fixed Fixed::operator++(int) {
 	return oldValue;
 }
 
-Fixed& Fixed::operator--() {
+Fixed& Fixed::operator--(void) {
 	int newValue = this->getRawBits() - 1;
 	this->setRawBits(newValue);
 	

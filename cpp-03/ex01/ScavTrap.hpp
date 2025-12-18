@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 20:03:17 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/12/17 21:08:45 by gangel-a         ###   ########.fr       */
+/*   Created: 2025/12/17 21:05:53 by gangel-a          #+#    #+#             */
+/*   Updated: 2025/12/18 15:02:53 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include <iostream>
-# include "Weapon.hpp"
+# include "ClapTrap.hpp"
 
-class HumanA {
-private:
-	std::string _name;
-	Weapon& _weapon;
-
+class ScavTrap : public ClapTrap {
 public:
-	HumanA(std::string name, Weapon& weapon);
-	~HumanA(void);
+	ScavTrap(std::string name);
+	ScavTrap(const ScavTrap& copy);
+	ScavTrap& operator=(const ScavTrap& other);
+	~ScavTrap(void);
 
-	void attack(void) const;
+	void attack(const std::string& target);
+	void guardGate(void);
 };
 
 #endif

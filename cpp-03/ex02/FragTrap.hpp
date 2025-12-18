@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 20:03:17 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/12/17 21:08:45 by gangel-a         ###   ########.fr       */
+/*   Created: 2025/12/18 15:17:17 by gangel-a          #+#    #+#             */
+/*   Updated: 2025/12/18 15:19:56 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include <iostream>
-# include "Weapon.hpp"
+# include "ClapTrap.hpp"
 
-class HumanA {
-private:
-	std::string _name;
-	Weapon& _weapon;
-
+class FragTrap : public ClapTrap {
 public:
-	HumanA(std::string name, Weapon& weapon);
-	~HumanA(void);
+	FragTrap(std::string name);
+	FragTrap(const FragTrap& copy);
+	FragTrap& operator=(const FragTrap& other);
+	~FragTrap(void);
 
-	void attack(void) const;
+	void attack(const std::string& target);
+	void highFivesGuys(void);
 };
 
 #endif
