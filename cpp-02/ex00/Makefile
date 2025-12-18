@@ -6,12 +6,12 @@
 #    By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/08 12:25:45 by gangel-a          #+#    #+#              #
-#    Updated: 2025/12/09 19:14:23 by gangel-a         ###   ########.fr        #
+#    Updated: 2025/12/16 22:03:55 by gangel-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # NAME
-NAME = phonebook
+NAME = fixedpoints
 
 # COMPILER
 CC = c++

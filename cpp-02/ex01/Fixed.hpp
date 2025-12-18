@@ -18,10 +18,10 @@
 
 class Fixed {
 private:
-static const int _fractBits = 8;
+	int _value;
+	static const int _fractBits = 8;
 
 public:
-	int _value; // so esta public para testes enquanto << nao esta feito
 	Fixed(void);
 	Fixed(const Fixed& copy);
 	Fixed(const int value);
@@ -29,11 +29,11 @@ public:
 	Fixed& operator=(const Fixed& other);
 	~Fixed(void);
 
+	int getFractBits(void) const;
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
-	//float toFloat(void) const;
-	//int toInt(void) const;
-	// USAR FRINED E PROIBIDO
+	float toFloat(void) const;
+	int toInt(void) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj);
