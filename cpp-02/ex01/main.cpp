@@ -6,10 +6,11 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 19:24:01 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/12/16 21:14:39 by gangel-a         ###   ########.fr       */
+/*   Updated: 2025/12/22 17:25:12 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Fixed.hpp"
 
 int main(void) {

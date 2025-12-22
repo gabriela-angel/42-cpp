@@ -28,7 +28,7 @@ public:
 	Fixed(const Fixed& copy);
 	Fixed& operator=(const Fixed& other);
 	~Fixed(void);
-	
+
 	bool operator>(const Fixed& other) const;
 	bool operator<(const Fixed& other) const;
 	bool operator>=(const Fixed& other) const;
@@ -46,7 +46,6 @@ public:
 	Fixed& operator--(void);
 	Fixed operator--(int);
 
-	int getFractBits(void) const;
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 

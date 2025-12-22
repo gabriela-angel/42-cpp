@@ -6,17 +6,18 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 19:24:01 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/12/17 20:55:27 by gangel-a         ###   ########.fr       */
+/*   Updated: 2025/12/22 17:25:18 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Fixed.hpp"
 
 int main( void ) {
 	{
 		Fixed a;
 		Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-		
+
 		std::cout << a << std::endl;
 		std::cout << ++a << std::endl;
 		std::cout << a << std::endl;

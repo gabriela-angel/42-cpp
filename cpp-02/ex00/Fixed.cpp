@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 19:19:30 by gangel-a          #+#    #+#             */
-/*   Updated: 2025/12/16 21:10:56 by gangel-a         ###   ########.fr       */
+/*   Updated: 2025/12/22 17:31:52 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ Fixed& Fixed::operator=(const Fixed& other) {
 }
 int Fixed::getRawBits( void ) const {
 	std::cout << "getRawBits member function called" << std::endl;
+	return this->_value;
 }
 
 void Fixed::setRawBits(int const raw) {
 	std::cout << "Default constructor called" << std::endl;
+	this->_value = raw;
 }
 
 Fixed::~Fixed(void) {
