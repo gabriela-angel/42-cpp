@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 14:44:59 by gangel-a          #+#    #+#             */
-/*   Updated: 2026/01/06 17:57:53 by gangel-a         ###   ########.fr       */
+/*   Updated: 2026/01/06 19:50:07 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void Bureaucrat::decrementGrade(void){
 	_grade++;
 }
 
-void Bureaucrat::signForm(Form& form) {
+void Bureaucrat::signForm(AForm& form) {
 	if (form.getSignStatus() == true) {
 		std::cout << form.getName() << " Form is already signed" << std::endl;
 		return;
@@ -63,6 +63,17 @@ void Bureaucrat::signForm(Form& form) {
 	catch (std::exception& e)
 	{
 		std::cout << "Bureaucrat " << this->getName() << " não conseguiu assinar Form " << form.getName() << " porque "<< e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const & form) const {
+	try {
+		form.execute(*this);
+		std::cout << "Bureaucrat " << this->getName() << " executou Form " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Bureaucrat " << this->getName() << " não conseguiu executar Form " << form.getName() << " porque "<< e.what() << std::endl;
 	}
 }
 

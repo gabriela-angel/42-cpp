@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 14:12:37 by gangel-a          #+#    #+#             */
-/*   Updated: 2026/01/06 17:38:16 by gangel-a         ###   ########.fr       */
+/*   Updated: 2026/01/06 19:49:46 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include <iostream>
 # include <exception>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 private:
@@ -34,7 +34,8 @@ public:
 	
 	void incrementGrade(void);
 	void decrementGrade(void);
-	void signForm(Form& form);
+	void signForm(AForm& Aform);
+	void executeForm(AForm const & form) const;
 
 	class GradeTooHighException : public std::exception {
 	public:

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,49 +10,58 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(std::string name, int gradeSign, int gradeExec) : _name(name), _isSigned(false), _gradeSign(gradeSign), _gradeExec(gradeExec){
+AForm::AForm(void) : _name("default"), _isSigned(false), _gradeSign(150), _gradeExec(150) {}
+
+AForm::AForm(std::string name, int gradeSign, int gradeExec) : _name(name), _isSigned(false), _gradeSign(gradeSign), _gradeExec(gradeExec){
 	if (gradeSign < 1 || gradeExec < 1)
 			throw GradeTooHighException();
 	if (gradeSign > 150 || gradeExec > 150)
 			throw GradeTooLowException();
 }
 
-Form::Form(const Form& copy) : _name(copy.getName()), _isSigned(copy.getSignStatus()), _gradeSign(copy.getGradeSign()), _gradeExec(copy.getGradeExec()) {}
+AForm::AForm(const AForm& copy) : _name(copy.getName()), _isSigned(copy.getSignStatus()), _gradeSign(copy.getGradeSign()), _gradeExec(copy.getGradeExec()) {}
 
-Form& Form::operator=(const Form& other) {
-	std::cout << "The use of an assignment operator for this class is invalid. Each form is unique and unchangeable." << std::endl;
+AForm& AForm::operator=(const AForm& other) {
+	std::cout << "The use of an assignment operator for this class is invalid. Each Aform is unique and unchangeable." << std::endl;
 	(void)other;
 	return *this;
 }
 
-Form::~Form(void) {}
+AForm::~AForm(void) {}
 
-const std::string Form::getName(void) const {
+void AForm::checkExecution(Bureaucrat const & executor) const {
+	if (!this->getSignStatus())
+		throw FormNotSigned();
+	if (executor.getGrade() > this->getGradeExec())
+		throw GradeTooLowException();
+}
+
+const std::string& AForm::getName(void) const {
 	return _name;
 }
 
-bool Form::getSignStatus(void) const {
+bool AForm::getSignStatus(void) const {
 	return _isSigned;
 }
 
-int Form::getGradeSign(void) const {
+int AForm::getGradeSign(void) const {
 	return _gradeSign;
 }
 
-int Form::getGradeExec(void) const {
+int AForm::getGradeExec(void) const {
 	return _gradeExec;
 }
 
-void Form::beSigned(Bureaucrat& obj) {
+void AForm::beSigned(Bureaucrat& obj) {
 	if (obj.getGrade() > _gradeSign)
 		throw GradeTooLowException();
 	if (this->getSignStatus() == false)
 		this->_isSigned = true;
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& obj) {
+std::ostream& operator<<(std::ostream& os, const AForm& obj) {
 	os << "Form " << obj.getName() << 
 	":\n\tSign Grade:\t" << obj.getGradeSign() <<
 	"\n\tExec Grade:\t" << obj.getGradeExec() <<
@@ -60,10 +69,14 @@ std::ostream& operator<<(std::ostream& os, const Form& obj) {
 	return os;
 }
 
-const char* Form::GradeTooHighException::what() const throw() {
+const char* AForm::GradeTooHighException::what() const throw() {
 	return "Grade too high";
 }
 
-const char* Form::GradeTooLowException::what() const throw() {
+const char* AForm::GradeTooLowException::what() const throw() {
 	return "Grade too low";
+}
+
+const char* AForm::FormNotSigned::what() const throw() {
+	return "Form is not signed";
 }
