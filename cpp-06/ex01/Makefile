@@ -6,12 +6,12 @@
 #    By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/08 12:25:45 by gangel-a          #+#    #+#              #
-#    Updated: 2026/01/13 12:22:30 by gangel-a         ###   ########.fr        #
+#    Updated: 2026/01/13 12:28:23 by gangel-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # NAME
-NAME = converter
+NAME = serialization
 
 # COMPILER
 CC = c++
@@ -25,7 +25,7 @@ OBJ_DIR = bin/
 # SOURCE
 SRC := $(addprefix $(SRC_DIR), \
 	main.cpp \
-	ScalarConverter.cpp \
+	Serializer.cpp \
 	)
 OBJ := $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SRC))
 
