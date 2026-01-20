@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 19:23:48 by gangel-a          #+#    #+#             */
-/*   Updated: 2026/01/11 20:05:16 by gangel-a         ###   ########.fr       */
+/*   Updated: 2026/01/20 12:49:02 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,18 @@ bool ScalarConverter::isChar(std::string literal) {
 }
 
 bool ScalarConverter::isFloat(std::string literal) {
-	//check overflow
 	long unsigned int pos = literal.find('.');
-
 	if (pos != std::string::npos) {
 		if (literal.find('f') != (literal.length() - 1))
 			return false;
 		if ((pos != 0 && !isdigit(literal[pos - 1])) && (pos != (literal.length() - 1) && !isdigit(literal[pos + 1])))
 			return false;
-		for (long unsigned int i = 0; i < literal.length(); i++) {
+		for (long unsigned int i = 0; i < (literal.length() - 1); i++) {
 			if (i == 0 && (literal[i] == '+' || literal[i] == '-'))
 				i++;
 			if (!std::isdigit(literal[i]) && i != pos)
 				return false;
 		}
-
 		long double ld;
 		std::stringstream ss(literal);
 		ss >> ld;
@@ -79,10 +76,16 @@ bool ScalarConverter::isFloat(std::string literal) {
 }
 
 bool ScalarConverter::isDouble(std::string literal) {
+	long unsigned int pos = literal.find('.');
+
+	if (pos != std::string::npos) {
+		if ((pos != 0 && !isdigit(literal[pos - 1])) && (pos != (literal.length() - 1) && !isdigit(literal[pos + 1])))
+				return false;
+	}
 	for (long unsigned int i = 0; i < literal.length(); i++) {
 		if (i == 0 && (literal[i] == '+' || literal[i] == '-'))
 			i++;
-		if (!std::isdigit(literal[i]))
+		if (!std::isdigit(literal[i]) && pos != i)
 			return false;
 	}
 
@@ -219,11 +222,11 @@ bool ScalarConverter::checkOverflow(long double ld, std::string type) {
 				return false;
 			break;
 		case 2:
-			if (ld > std::numeric_limits<float>::max() || ld < std::numeric_limits<float>::min())
+			if (ld > std::numeric_limits<float>::max() || ld < -std::numeric_limits<float>::max())
 				return false;
 			break;
 		case 3:
-			if (ld > std::numeric_limits<double>::max() || ld < std::numeric_limits<double>::min())
+			if (ld > std::numeric_limits<double>::max() || ld < -std::numeric_limits<double>::max())
 				return false;
 			break;
 		default:
