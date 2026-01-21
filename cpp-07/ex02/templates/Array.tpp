@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 16:54:44 by gangel-a          #+#    #+#             */
-/*   Updated: 2026/01/16 17:23:19 by gangel-a         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:05:18 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Array<T>& Array<T>::operator=(const Array<T>& other) {
 
 template <typename T>
 T& Array<T>::operator[](int index) {
-	if(index > static_cast<int>(_size) || index < 0)
+	if(index >= static_cast<int>(_size) || index < 0)
 		throw IndexOutOfBounds();
 	return _data[index];
 }
