@@ -6,16 +6,17 @@
 #    By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/08 12:25:45 by gangel-a          #+#    #+#              #
-#    Updated: 2026/02/02 19:36:11 by gangel-a         ###   ########.fr        #
+#    Updated: 2026/02/03 17:04:07 by gangel-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # NAME
-NAME = span
+NAME = abomination
 
 # COMPILER
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
+TEMPLATES = -Itemplates
 INCLUDES = -Iincludes
 
 # DIRECTORIES
@@ -25,7 +26,6 @@ OBJ_DIR = bin/
 # SOURCE
 SRC := $(addprefix $(SRC_DIR), \
 	main.cpp \
-	Span.cpp \
 	)
 OBJ := $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SRC))
 
@@ -48,14 +48,14 @@ RESET		=	\033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(INCLUDES) $(OBJ) -o $@
+	@$(CC) $(FLAGS) $(INCLUDES) $(TEMPLATES) $(OBJ) -o $@
 	@printf "$(GREEN_BOLD)Compilation successful: $(NAME) $(RESET)\n"
 
 $(OBJ_DIR):
 	@mkdir -p $@
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
-	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(FLAGS) $(INCLUDES) $(TEMPLATES) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJ_DIR)

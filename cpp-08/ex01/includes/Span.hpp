@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:23:15 by gangel-a          #+#    #+#             */
-/*   Updated: 2026/01/21 17:18:35 by gangel-a         ###   ########.fr       */
+/*   Updated: 2026/02/02 19:35:30 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,18 @@ public:
 	Span& operator=(const Span& other);
 	~Span();
 
-	void addNumber(int toAdd);
 	int shortestSpan();
 	int longestSpan();
-	// add multiple elements function
+	void addNumber(int toAdd);
+	
+	template <typename It>
+	void addNumber(It begin, It end) {
+		size_t dist = std::distance(begin, end);
+		if (_v.size() + dist > _N)
+			throw std::logic_error("Cannot add all items to the object");
+
+		_v.insert(_v.end(), begin, end);
+	}
 };
 
 #endif

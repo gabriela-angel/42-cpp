@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:36:54 by gangel-a          #+#    #+#             */
-/*   Updated: 2026/01/21 16:25:42 by gangel-a         ###   ########.fr       */
+/*   Updated: 2026/02/02 19:36:45 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int Span::shortestSpan() {
 	std::sort(tmp.begin(), tmp.end());
 	int min_diff;
 
-	for (int i = 0; i < tmp.size() - 1; i++) {
+	for (size_t i = 0; i < tmp.size() - 1; i++) {
 		int current_diff = std::abs(tmp[i + 1] - tmp[i]);
 		if (i == 0 || current_diff < min_diff)
 			min_diff = current_diff;

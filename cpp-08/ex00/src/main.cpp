@@ -6,7 +6,7 @@
 /*   By: gangel-a <gangel-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:42:52 by gangel-a          #+#    #+#             */
-/*   Updated: 2026/01/20 19:30:36 by gangel-a         ###   ########.fr       */
+/*   Updated: 2026/02/02 19:02:45 by gangel-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main(void) {
 	tmpList.push_back(9);
 	tmpList.push_back(4);
 	
+	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! remember why you had to do this!!
 	const std::vector<int>& v1 = tmpVector;
 	const std::list<int>& list1 = tmpList;
 
